@@ -1,0 +1,238 @@
+@extends('layouts.app')
+
+@section('content')
+
+<style>
+    :root {
+        --color-accent: #208088;
+        --color-accent-light: #32b8c6;
+        --color-text-primary: #134252;
+        --color-text-secondary: #62746e;
+        --color-card-bg: #ffffff;
+        --color-border: #d4d8d6;
+        --color-input-bg: #f5f7f6;
+        --radius-base: 8px;
+        --radius-lg: 12px;
+        --spacing-md: 12px;
+        --spacing-lg: 16px;
+        --spacing-xl: 24px;
+    }
+    
+    .profile-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: var(--spacing-xl);
+    }
+    
+    .profile-card {
+        background: var(--color-card-bg);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border);
+        padding: var(--spacing-xl);
+    }
+    
+    .profile-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .profile-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    .profile-picture {
+        width: 160px;
+        height: 160px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 2px solid var(--color-border);
+    }
+    
+    .profile-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .profile-picture-upload {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .profile-picture-label {
+        display: inline-block;
+        background: var(--color-accent);
+        color: white;
+        padding: 8px 16px;
+        border-radius: var(--radius-base);
+        cursor: pointer;
+        text-align: center;
+        font-weight: 500;
+        text-decoration: none;
+    }
+    
+    .profile-picture-input {
+        display: none;
+    }
+    
+    .profile-picture-hint {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+    }
+    
+    .profile-pgp-section {
+        background: var(--color-input-bg);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-base);
+    }
+    
+    .profile-pgp-title {
+        margin: 0 0 var(--spacing-md) 0;
+        color: var(--color-text-primary);
+        font-weight: 600;
+    }
+    
+    .profile-pgp-status {
+        padding: 10px;
+        border-radius: var(--radius-base);
+        margin-bottom: var(--spacing-md);
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    .profile-pgp-verified {
+        background: rgba(76, 175, 80, 0.12);
+        color: #4caf50;
+    }
+    
+    .profile-pgp-unverified {
+        background: rgba(255, 193, 7, 0.12);
+        color: #ffc107;
+    }
+    
+    .profile-pgp-none {
+        background: rgba(158, 158, 158, 0.12);
+        color: #9e9e9e;
+    }
+    
+    .profile-pgp-verify {
+        color: var(--color-accent);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .profile-form-title {
+        margin: 0 0 var(--spacing-lg) 0;
+        font-size: 20px;
+        color: var(--color-text-primary);
+        font-weight: 600;
+    }
+    
+    .profile-form-group {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .profile-form-label {
+        display: block;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-primary);
+        font-weight: 500;
+    }
+    
+    .profile-form-textarea {
+        width: 100%;
+        padding: var(--spacing-md);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-base);
+        font-family: inherit;
+        font-size: 14px;
+        resize: vertical;
+        color: var(--color-text-primary);
+        background: var(--color-input-bg);
+    }
+    
+    .profile-form-hint {
+        display: block;
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--color-text-secondary);
+    }
+    
+    .profile-submit-btn {
+        background: var(--color-accent);
+        color: white;
+        padding: 10px 24px;
+        border: none;
+        border-radius: var(--radius-base);
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+        .profile-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class=\"profile-container\">
+    <form action=\"{{ route('profile.update') }}\" method=\"POST\" enctype=\"multipart/form-data\">
+        @csrf
+        <div class=\"profile-card\">
+            <div class=\"profile-grid\">
+                <div class=\"profile-sidebar\">
+                    <div>
+                        <div class=\"profile-picture\">
+                            <img src=\"{{ $profile->profile_picture_url }}\" alt=\"Profile Picture\">
+                        </div>
+                        <div class=\"profile-picture-upload\">
+                            <label for=\"profile_picture\" class=\"profile-picture-label\">
+                                Change Picture
+                            </label>
+                            <input type=\"file\" name=\"profile_picture\" id=\"profile_picture\">
+                            <small class=\"profile-picture-hint\">JPEG, PNG, GIF, WebP. Max 800KB. Resized to 160x160px.</small>
+                        </div>
+                    </div>
+                    <div class=\"profile-pgp-section\">
+                        <h5 class=\"profile-pgp-title\">PGP Key Status</h5>
+                        @if(Auth::user()->pgpKey)
+                            @if(Auth::user()->pgpKey->verified)
+                                <div class=\"profile-pgp-status profile-pgp-verified\">
+                                    Verified PGP Public Key
+                                </div>
+                            @else
+                                <div class=\"profile-pgp-status profile-pgp-unverified\">
+                                    Unverified PGP Public Key
+                                </div>
+                                <div>
+                                    <a href=\"{{ route('pgp.confirm') }}\" class=\"profile-pgp-verify\">Verify PGP Key</a>
+                                </div>
+                            @endif
+                        @else
+                            <div class=\"profile-pgp-status profile-pgp-none\">
+                                No PGP Key Added
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div>
+                    <h2 class=\"profile-form-title\">Update Your Profile</h2>
+                    <div class=\"profile-form-group\">
+                        <label for=\"description\" class=\"profile-form-label\">Description</label>
+                        <textarea name=\"description\" id=\"description\" rows=\"10\" required minlength=\"4\" maxlength=\"800\" class=\"profile-form-textarea\">{{ old('description', $profile->description ? e(Crypt::decryptString($profile->description)) : '') }}</textarea>
+                        <small class=\"profile-form-hint\">4-800 characters. Letters, numbers, spaces, punctuation.</small>
+                    </div>
+                    <div>
+                        <button type=\"submit\" class=\"profile-submit-btn\">Update Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@endsection

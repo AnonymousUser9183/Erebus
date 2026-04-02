@@ -1,0 +1,21 @@
+Comment: This is an example of a canary.txt file that meets OMG requirements.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+I, AnonymousUser9183 am alive and free as of April 2, 2026 and in full control of my Github account and private git server. Below is the current Monero, Bitcoin and ZCash block hash as of the time of signing to combat automated Canaries:
+
+Current Bitcoin Block Hash: 0000000000000000000128f992ded564e3721c2613cf518b3eeb155172ec3c59
+
+Current Monero Block Hash:   239d09291639148065ed92e8e6e1bdfadbfdb41453c502cf35acc4fa87f9c10d
+
+Current ZCash Block Hash: 0000000000c167afb4d903360226710fed27c17ef878804b99f73ea3d3a3774f
+
+Signed By ~ AnonymousUser9184 | Developer of Erebus Marketplace Script
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSl4wF+0SaYawEGSk9TNudFnqDnAQUCac6zfAAKCRBTNudFnqDn
+AZ6OAQCXHSP6YMv9UMwEJvCU1tol6TAUUbimIf3vi3XyS2xfxwD/UOIUBlB66IhZ
+JgsfIYejA159fMcczv88TSrifqm66gw=
+=u4TM
+-----END PGP SIGNATURE-----

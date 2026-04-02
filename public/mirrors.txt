@@ -1,0 +1,22 @@
+This is an example of a valid mirrors.txt file as described in the Onion Mirror Guidelines:
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+http://blahblahblahmirror1.onion/
+http://blahblahblahmirror2.onion/
+
+This is the valid /mirrors.txt file for Erebus Marketplace Script and an example of the OMG standard:
+- - http://blahblahblah.onion/omg.txt
+
+Mirrors.txt Rules:
+- - Mirrors must be signed by a PGP key which is in /pgp.txt hosted at all of your URLs.
+- - Any line in this file which begins with http://“ or “https://“ is an official mirror of your site.
+- - All valid mirrors must only contain a scheme and domain name, no ports or paths.
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSl4wF+0SaYawEGSk9TNudFnqDnAQUCac63GQAKCRBTNudFnqDn
+ATkGAP9EXgKZ/DYyS4EGkoQUtmiiYBX5Nq4u+JXJMFnmFPX/TwEAho4kInyqSgbN
+zvA6hmX72+gw91zl7bp4B64Fr2GvHwY=
+=zwNR
+-----END PGP SIGNATURE-----

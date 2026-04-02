@@ -1,0 +1,65 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+This file details the OMG standards. It is recommended to follow these standards.
+
+To reduce the impact of phishing and to ease automatic PGP verification
+of mirrors, Dark.Fail introduced the Onion Mirror Guidelines (OMG).
+
+Developers that implement this standard show a commitment to user safety
+by proving ownership of all URLs associated with their site, and by
+committing to regularly prove control of their PGP key.
+
+=========
+
+Onion Mirror Guidelines (OMG)
+Version: Erebus Suggested 1.0
+
+You must host these text files at all of your .onion URLs:
+
+/pgp.txt - Required - HTTP 200 text/plain
+- A list of all PGP public keys allowed to announce your official mirrors.
+- May contain multiple PGP keys.
+- All keys must be ASCII armored.
+- Do not list a key here unless it is trusted to sign official .onion URLs. 
+- Example: http://blahblahblah.onion/pgp.txt
+
+/mirrors.txt - Required - HTTP 200 text/plain
+- PGP SIGNED list of all official mirrors of your site. 
+- Mirrors must be signed by a PGP key which is in /pgp.txt hosted at all of your URLs.
+- Any line in this file which begins with http:// or https:// 
+is an official mirror of your site.
+- All valid mirrors must only contain a scheme and domain name, no
+ports or paths.
+- /pgp.txt must have the same content on all of your URLs.
+- Text which is not intended to be parsed as an official mirror must 
+be commented out with a # as the first character on the line.
+- Example: http://blahblahblah.onion/mirrors.txt
+
+/canary.txt - Required - HTTP 200 text/plain
+- PGP SIGNED message MUST be updated every 7 days. 
+- Can be signed by any key specified in /pgp.txt
+- The message must contain the latest BTC, XMR and Zcash block hash and the current 
+date in any format, with a string similar to I, Billy Bobbert the 3rd am alive and free as of <today's date> and in full control of all BobTheKnobSlobber services. The next Canary update is scheduled for <7 days from today's date>. Below is the current Monero, Bitcoin and ZCash block hash as of the time of signing to combat automated Canaries:
+- If you cannot do this you should not be running a darknet market. 
+- Example: http://blahblahblah.onion/canary.txt
+
+/related.txt - required - HTTP 200 text/plain
+- PGP SIGNED list of all .onion sites related to your site. 
+- This is where you list forums, link lists, related services.
+- /pgp.txt must have the same content on all of your URLs.
+- Text which is not intended to be parsed as an official mirror must 
+be commented out with a # as the first character on the line.
+- Example: http://blahblahblah.onion/mirrors.txt 
+
+/omg.txt - optional - HTTP 200 text/plain
+- PGP SIGNED copy of this message
+- It is recommended to host this file to show support of the guidelines.
+- Example: http://blahblahblah.onion/omg.txt 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSl4wF+0SaYawEGSk9TNudFnqDnAQUCac61GAAKCRBTNudFnqDn
+AdXBAQD0lvMuDVe0XJlGTFJR1mI77h/DlahOyeWDkFkWkR7K0gEAlA0X324/0u5V
+1bmMAP4v33rGmoopLa2l/7tSIXKtMgI=
+=5JHs
+-----END PGP SIGNATURE-----

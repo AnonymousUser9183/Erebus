@@ -1,0 +1,17 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Erebus Marketplace Script Example Related Services Per OMG Guidelines
+
+1.) Erebus Email Script - Unreleased - http://blahblahblah1.onion/
+
+2.) Erebus Privacy Crypto - Unreleased - http://blahblahblah2.onion/
+
+3.) Erebus Crypto Exchange - Unreleased - http://blahblahblah3.onion/
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSl4wF+0SaYawEGSk9TNudFnqDnAQUCac625gAKCRBTNudFnqDn
+AYPfAQCyiR+QN5vfnsjAwBpU5SFFrO5ERrizFyZ2uS5BTfXn3QD/V6YeHaZ7E8st
+DPaBwZJqp2LB3N2AEMAjcVfmlBPo1w0=
+=cTKQ
+-----END PGP SIGNATURE-----
