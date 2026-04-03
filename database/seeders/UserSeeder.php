@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use FurqanSiddiqui\BIP39\BIP39;
-use FurqanSiddiqui\BIP39\Language\English;
+use FurqanSiddiqui\BIP39\WordList;
 
 class UserSeeder extends Seeder
 {
@@ -18,12 +18,12 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->command->info('Starting to seed roles and users...');
+        echo 'Starting to seed roles and users...' . PHP_EOL;
 
         // Create admin and vendor roles
         $adminRole = Role::firstOrCreate(['name' => 'admin']);
         $vendorRole = Role::firstOrCreate(['name' => 'vendor']);
-        $this->command->info('Admin and Vendor roles created successfully.');
+        echo 'Admin and Vendor roles created successfully.' . PHP_EOL;
 
         $userCount = 1;
         $successCount = 0;
@@ -50,38 +50,38 @@ class UserSeeder extends Seeder
                 // Assign admin role to the first user
                 if ($i === 1) {
                     $user->roles()->attach($adminRole);
-                    $this->command->info("Admin user created successfully:");
+                    echo "Admin user created successfully:" . PHP_EOL;
                 } 
                 // Assign vendor role to the next 3 users
                 elseif ($i >= 2 && $i <= 4) {
                     $user->roles()->attach($vendorRole);
-                    $this->command->info("Vendor user created successfully:");
+                    echo "Vendor user created successfully:" . PHP_EOL;
                 }
                 else {
-                    $this->command->info("Regular user created successfully:");
+                    echo "Regular user created successfully:" . PHP_EOL;
                 }
 
-                $this->command->info("Username: {$username}");
-                $this->command->info("Password: {$password}");
-                $this->command->info("Mnemonic: {$mnemonic}");
-                $this->command->info("Reference ID: {$referenceId}");
-                $this->command->info($i === 1 ? "Role: Admin" : ($i >= 2 && $i <= 4 ? "Role: Vendor" : "Role: Regular User"));
-                $this->command->info("---");
+                echo "Username: {$username}" . PHP_EOL;
+                echo "Password: {$password}" . PHP_EOL;
+                echo "Mnemonic: {$mnemonic}" . PHP_EOL;
+                echo "Reference ID: {$referenceId}" . PHP_EOL;
+                echo ($i === 1 ? "Role: Admin" : ($i >= 2 && $i <= 4 ? "Role: Vendor" : "Role: Regular User")) . PHP_EOL;
+                echo "---" . PHP_EOL;
 
                 $successCount++;
             } catch (\Exception $e) {
-                $this->command->error("Error creating user{$i}: " . $e->getMessage());
+                echo "Error creating user{$i}: " . $e->getMessage() . PHP_EOL;
                 Log::error("Error seeding user{$i}: " . $e->getMessage());
                 $errorCount++;
             }
         }
 
-        $this->command->info("Seeding completed.");
-        $this->command->info("Successfully created users: {$successCount}");
-        $this->command->info("Failed to create users: {$errorCount}");
+        echo "Seeding completed." . PHP_EOL;
+        echo "Successfully created users: {$successCount}" . PHP_EOL;
+        echo "Failed to create users: {$errorCount}" . PHP_EOL;
     }
 
-/**
+    /**
      * Generate a valid username based on the AuthController rules.
      */
     private function generateValidUsername($index): string
@@ -116,7 +116,7 @@ class UserSeeder extends Seeder
         $lowercase = 'abcdefghijklmnopqrstuvwxyz';
         $uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $numbers = '0123456789';
-        $specialChars = '#$%&@^`~.,:;"\'\/|_-<>*+!?=[](){}';
+        $specialChars = '#$%&@^`~.,:;"\'\\/|_-<>*+!?=[](){}';
 
         $password = $lowercase[rand(0, strlen($lowercase) - 1)] . 
                     $uppercase[rand(0, strlen($uppercase) - 1)] . 
@@ -139,10 +139,16 @@ class UserSeeder extends Seeder
     protected function generateMnemonic()
     {
         try {
-            $mnemonic = BIP39::fromRandom(
-                English::getInstance(),
-                wordCount: 12
+            // For version 0.1.7, use the Generate method with WordList::English()
+            $mnemonic = BIP39::Generate(
+                12,
+                WordList::English()
             );
+            
+            if ($mnemonic === null) {
+                throw new \Exception("Unable to generate mnemonic.");
+            }
+            
             return implode(' ', $mnemonic->words);
         } catch (\Exception $e) {
             Log::error('Failed to generate mnemonic: ' . $e->getMessage());
