@@ -1,6 +1,25 @@
 <div align="center">
   <h1>Erebus Marketplace Script</h1>
 </div>
+<div align="center">
+  <h1>Laravel 12 - Monero Only - Open Source Marketplace Script
+</h1>
+</div>
+
+<div align="center">
+    <h2>Donation Address</h2>
+</div>
+<div align="center">
+Support continued development through Monero donations:
+
+**Monero (XMR)**
+```
+45umQEDfN52gzHMpUxkK8TUAeZjFgzb2VDmZArgx4iTHeGY4gb2KrtqZC691Ff9pHaJeUFF1oBZAGQHTHzps7icg5cdptMG
+```
+
+All donations support active development and security improvements.
+</div>
+
 
 <div align="center">
   <h1><a href="docs/INSTALLATION.md">Installation Guide</a></h1>
@@ -11,7 +30,7 @@
 </div>
 
 <div align="center">
-  <h1>Erebus Marketplace Script - Laravel 12 Monero Marketplace</h1>
+  <h1>Erebus Marketplace Script</h1>
   <p><strong>Author:</strong> AnonymousUser9183</p>
   <p><strong>Organization:</strong> The Erebus Development Team</p>
   <p><strong>License:</strong> <a href="LICENSE.md">Erebus Marketplace Script License 1.0</a></p>
@@ -23,13 +42,14 @@
     <h2>About Erebus Marketplace Script</h2>
 </div>
 
-**Erebus Marketplace Script** is a modern, privacy-focused marketplace platform built with **PHP 8.3** and **Laravel 12.11.1**. Erebus Marketplace Script is a rewritten version of the now lost Kabus Marketplace Script and provides a complete marketplace solution for anonymous commerce using Monero cryptocurrency.
-
-The purpose of creating Erebus Marketplace Script is to replace Kabus Marketplace Script and to provide safe and anonymous commerce software and ensure continued evolution of privacy-respecting marketplace technology. It is not created for any illegal purpose, nor does it encourage such activities. The platform facilitates the sale of legal products such as legally aquired electronics and jewlery online as anonymously and securely as possible.
+<div align="center">
+**Erebus Marketplace Script** is a modern, privacy-focused marketplace platform built with **PHP 8.3** and **Laravel 12.11.1**. Erebus Marketplace Script is a rewritten version of the lost Kabus Marketplace Script and provides a complete marketplace solution for anonymous commerce using Monero.
+  
+  The purpose of creating Erebus Marketplace Script is to replace Kabus Marketplace Script and to provide safe and anonymous commerce software and ensure continued evolution of privacy-respecting marketplace technology. It is not created for any illegal purpose, nor does it encourage such activities. The platform facilitates the sale of legal products such as legally aquired electronics and jewlery online as anonymously and securely as possible.
 
 Built with a security-first approach, including hardened Laravel controllers, maximum CSP policies, and zero-JavaScript architecture for optimal Tor compatibility.
+</div>
 
----
 
 <div align="center">
     <h2>Core Features</h2>
@@ -144,27 +164,26 @@ For detailed installation instructions, see [INSTALLATION.md](docs/INSTALLATION.
     <h2>Architecture Overview</h2>
 </div>
 
-### Controllers (Modernized for Laravel 12.11.1)
+### Controllers + Middleware + More (Modernized for Laravel 12.11.1)
 
-**ReturnAddressController**
-- Monero address validation and management
-- Full type hints with View|Response return types
-- 13 private helper methods
+**Added Features**
+- Private mirror system
+- Orders management panel - under construction
+- Harm reduction education system
 - Comprehensive logging and exception handling
 
-**ProductController**
-- Product listing with advanced filtering
-- Search, vendor, type, category, and price sorting
-- Vendor vacation/private shop mode handling
-- XMR price conversion
-- 13 private helper methods for separation of concerns
-
-**TrustProxies Middleware**
-- Primary CSP file
+**Middleware**
+- TrustProxies.php as primary csp middleware
 - Proxy configuration for load balancers/Tor exits
 - 8 dedicated security header methods
 - Cache control for sensitive paths
 - 21 permissions restrictions
+
+**Other**
+- Updated category management to list properly parent cat - sub-cat - sub-sub-cat structure
+- Completely rewritten design
+- Floating sponsor banner added
+- New navbar setup, left and right bars removed
 
 ---
 
@@ -215,9 +234,9 @@ For complete license details, see [LICENSE.md](LICENSE.md)
     <h2>Project Status</h2>
 </div>
 
-**Status:** Active Development
+**Status:** Active Development - Beta
 
-Erebus Marketplace Script is under active development with regular updates and security improvements. The project prioritizes:
+Erebus Marketplace Script is under active/beta development with regular updates and security improvements. The project prioritizes:
 
 1. **Security** - Hardened controls and CSP policies
 2. **Privacy** - Zero-JavaScript Tor compatibility
@@ -322,21 +341,6 @@ The creators and maintainers assume no liability for misuse, illegal activity, o
 **Contributors:** Community forks and improvements welcome
 
 **Special Thanks:** Monero community for cryptocurrency integration support
-
----
-
-<div align="center">
-    <h2>Donation Address</h2>
-</div>
-
-Support continued development through Monero donations:
-
-**Monero (XMR)**
-```
-[Monero address here]
-```
-
-All donations support active development and security improvements.
 
 ---
 
