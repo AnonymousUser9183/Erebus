@@ -46,13 +46,13 @@ class HomeController extends Controller
             Log::debug('XMR price retrieved', ['price' => $xmrPrice]);
 
             // Organize advertisements by slot, skipping ads with deleted products
-            $adSlots = $this->organizeAdvertisements($advertisements, $xmrPrice);
+            $adSlots = $this->organizeAdvertisements($advertisements, (float) $xmrPrice);
 
             // Get featured products
             $featuredProducts = FeaturedProduct::getAllFeaturedProducts();
 
             // Format featured products similar to advertisements
-            $formattedFeaturedProducts = $this->formatFeaturedProducts($featuredProducts, $xmrPrice);
+            $formattedFeaturedProducts = $this->formatFeaturedProducts($featuredProducts, (float) $xmrPrice);
 
             Log::debug('Home page data loaded', [
                 'ad_slots' => count($adSlots),
