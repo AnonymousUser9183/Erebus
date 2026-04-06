@@ -707,11 +707,11 @@ UNAVAILABLE
 <div class="footer-section">
 <div class="footer-section-title"></div>
 <div class="footer-sponsor">
-<a href="http://stopcpozlbfa4s4fuhisthyaivzbewe2rihsadarlkvqv5gaphkrvvyd.onion/" target="_blank" rel="noopener noreferrer" title="Support The StopCP Initiative">
-<img src="{{ asset('images/stopcp.png') }}" alt="StopCP Initiative">
+<a href="http://sponsorurl.onion/" target="_blank" rel="noopener noreferrer" title="Sponsor Text">
+<img src="{{ asset('images/sponsor.png') }}" alt="Sponsor Text">
 </a>
 </div>
-<p style="font-size: 11px; color: var(--color-text-secondary); text-align: center;">Support The StopCP Initiative</p>
+<p style="font-size: 11px; color: var(--color-text-secondary); text-align: center;">Sponsor Text</p>
 </div>
 </div>
 
