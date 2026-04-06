@@ -145,7 +145,7 @@ Built with a security-first approach, including hardened Laravel controllers, ma
 4. **Setup database**
    ```bash
    php artisan migrate
-   php artisan seed --class=DatabaseSeeder
+   php artisan db:seed
    ```
 
 5. **Configure Monero RPC**
