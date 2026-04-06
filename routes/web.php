@@ -35,6 +35,7 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BecomeVendorController;
 use App\Http\Controllers\ReturnAddressController;
+use App\Http\Controllers\PrivateMirrorRequestController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\VendorMiddleware;
 use App\Http\Middleware\CheckBanned;
@@ -316,10 +317,10 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::post('/admin/vendor-applications/{application}/deny', [AdminController::class, 'denyVendorApplication'])->name('admin.vendor-applications.deny');
 
     // Private Mirror Requests - ADMIN SIDE
-    Route::get('/admin/private-mirror-requests', [AdminController::class, 'privateMirrorRequestsList'])->name('admin.private-mirror-requests.list');
-    Route::get('/admin/private-mirror-requests/{requestId}', [AdminController::class, 'privateMirrorRequestsShow'])->name('admin.private-mirror-requests.show');
-    Route::post('/admin/private-mirror-requests/{requestId}/assign', [AdminController::class, 'privateMirrorRequestsAssign'])->name('admin.private-mirror-requests.assign');
-    Route::post('/admin/private-mirror-requests/{requestId}/deny', [AdminController::class, 'privateMirrorRequestsDeny'])->name('admin.private-mirror-requests.deny');
+    Route::get('/admin/private-mirror-requests', [PrivateMirrorRequestController::class, 'adminIndex'])->name('admin.private-mirror-requests.list');
+    Route::get('/admin/private-mirror-requests/{requestId}', [PrivateMirrorRequestController::class, 'privateMirrorRequestsShow'])->name('admin.private-mirror-requests.show');
+    Route::post('/admin/private-mirror-requests/{requestId}/assign', [PrivateMirrorRequestController::class, 'privateMirrorRequestsAssign'])->name('admin.private-mirror-requests.assign');
+    Route::post('/admin/private-mirror-requests/{requestId}/deny', [PrivateMirrorRequestController::class, 'privateMirrorRequestsDeny'])->name('admin.private-mirror-requests.deny');
 
     // Pop-ups
     Route::get('/admin/pop-up', [AdminController::class, 'popupIndex'])->name('admin.popup.index');
