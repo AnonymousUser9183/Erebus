@@ -619,7 +619,7 @@ grid-template-columns: 1fr;
 <!-- Sponsorship Banner -->
 <div class="sponsor-banner">
 <a href="/">
-<img src="{{ asset('images/logo_original.png') }}" alt="Erebus Marketplace Script">
+<img src="{{ asset('images/logo.png') }}" alt="Erebus Marketplace Script">
 <span class="sponsor-banner-text">Welcome to <strong>Erebus Marketplace Script</strong> - A rewritten and upgraded version of Kabus Marketplace Script by Sukunetsiz. Running on the latest variant of Laravel 12 updated from Laravel 11 and a completely rewritten design.</span>
 </a>
 </div>
@@ -629,7 +629,7 @@ grid-template-columns: 1fr;
 <div class="navbar-container">
 <div class="navbar-left">
 <div class="navbar-logo-wrapper">
-<img src="{{ asset('images/logo_original.png') }}" alt="Erebus Marketplace Script" class="navbar-logo-img">
+<img src="{{ asset('images/logo.png') }}" alt="Erebus Marketplace Script" class="navbar-logo-img">
 <a href="{{ route('login-home') }}" class="navbar-logo">Erebus Marketplace Script</a>
 </div>
 </div>
