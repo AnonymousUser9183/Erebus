@@ -51,7 +51,7 @@ Route::get('/', function () {
     return redirect()->route('guest-products.index');
 })->name('login-home');
 
-// ===== GUEST PRODUCTS ROUTES - PUBLIC (NO AUTH REQUIRED) =====
+// ===== GUEST PRODUCTS ROUTES - PUBLIC (NO AUTH REQUIRED) ======
 Route::get('/guest-products', [GuestProductController::class, 'index'])->name('guest-products.index');
 Route::get('/guest-products/{id}', [GuestProductController::class, 'show'])->name('guest-products.show');
 Route::get('/guest-product-picture/{filename}', [PrivateFileController::class, 'guestProductPicture'])->name('guest-product.picture');
