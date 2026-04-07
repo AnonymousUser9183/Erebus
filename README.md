@@ -7,6 +7,15 @@
 </div>
 
 <div align="center">
+  <p>
+    <strong>Erebus Marketplace Script Live Preview:</strong> 
+    <a href="http://root.nettrek.ru" target="_blank" rel="noopener noreferrer">
+      http://root.nettrek.ru
+    </a>
+  </p>
+</div>
+
+<div align="center">
     <h2>Donation Address</h2>
 </div>
 <div align="center">
