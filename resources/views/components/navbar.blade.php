@@ -323,7 +323,7 @@
     <div class="sponsor-banner">
         <a href="/home">
             <img src="{{ asset('images/logo.png') }}" alt="Erebus Marketplace Script">
-            <span class="sponsor-banner-text">Welcome to <strong>Erebus Marketplace Script</strong> - The most actively maintained darknet market with continuous security updates, real-time threat monitoring, a verified vendor network, and military-grade encryption.</span>
+            <span class="sponsor-banner-text">Welcome to <strong>Erebus Marketplace Script</strong> - A rewritten and upgraded version of Kabus Marketplace Script by Sukunetsiz. Running on the latest variant of Laravel 12 updated from Laravel 11 and a completely rewritten design.</span>
         </a>
     </div>
 
