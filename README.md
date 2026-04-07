@@ -46,6 +46,14 @@ All donations support active development and security improvements.
 </div>
 
 ---
+<div align="center">
+<p>
+<strong>Erebus Marketplace Script - Tor Repository:</strong> 
+<a href="http://gitorxr6mcshgjq5j4e6u7oubewmautxh7amri4m7hxsvucixezykfad.onion/Erebus/Erebus" target="_blank" rel="noopener noreferrer">
+http://gitorxr6mcshgjq5j4e6u7oubewmautxh7amri4m7hxsvucixezykfad.onion/Erebus/Erebus
+</a>
+</p>
+</div>
 
 <div align="center">
     <h2>About Erebus Marketplace Script</h2>
