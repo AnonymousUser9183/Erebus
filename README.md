@@ -21,11 +21,22 @@
 <div align="center">
 Support continued development through Monero donations:
 
+**CashApp (USD)**
+```
+$AnonymousUser9183
+```
 **Monero (XMR)**
 ```
 45umQEDfN52gzHMpUxkK8TUAeZjFgzb2VDmZArgx4iTHeGY4gb2KrtqZC691Ff9pHaJeUFF1oBZAGQHTHzps7icg5cdptMG
 ```
-
+**Bitcoin (BTC)**
+```
+bc1qwnpu53a233u864z5tc66v4454tlamg3ljvcxa0
+```
+**Litecoin (LTC)**
+```
+ltc1qm0n4fqdhc6nz6ed9vafjqdx86a4pqj3t5ed7mc
+```
 All donations support active development and security improvements.
 </div>
 
